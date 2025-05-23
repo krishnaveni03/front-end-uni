@@ -12,7 +12,7 @@ const AvailableCourses = () => {
 
   // Filter courses by search term and exclude already enrolled courses
   const availableCourses = courses.filter(course => 
-    !student.courses.includes(course.id) &&
+    !(student?.courses || []).includes(course.id) &&
     (course.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
      course.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
      course.department.toLowerCase().includes(searchTerm.toLowerCase()))
